@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dari putroo</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      font-family: 'Comic Sans MS', cursive;
+      background: linear-gradient(to top, #a0e9ff, #ffffff);
+      overflow: hidden;
+      height: 100vh;
+      text-align: center;
+      color: #333;
+    }
+
+    .cloud {
+      position: absolute;
+      top: 50px;
+      background: white;
+      border-radius: 50%;
+      width: 100px;
+      height: 60px;
+      opacity: 0.8;
+      animation: float 20s linear infinite;
+    }
+
+    .cloud::before,
+    .cloud::after {
+      content: '';
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+    }
+
+    .cloud::before {
+      width: 60px;
+      height: 60px;
+      top: -30px;
+      left: 10px;
+    }
+
+    .cloud::after {
+      width: 80px;
+      height: 80px;
+      top: -20px;
+      left: 40px;
+    }
+
+    @keyframes float {
+      0% { left: -200px; }
+      100% { left: 110%; }
+    }
+
+    .hero {
+      margin-top: 100px;
+    }
+
+    .hero img {
+      width: 200px;
+      animation: wiggle 2s infinite ease-in-out;
+    }
+
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(-5deg); }
+      50% { transform: rotate(5deg); }
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-top: 20px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+
+    .cta button {
+      padding: 12px 24px;
+      background: #ff7eb3;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      margin: 5px;
+    }
+
+    .cta button:hover {
+      background: #ff4f91;
+    }
+
+    .question {
+      margin-top: 40px;
+    }
+
+    #noBtn {
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Awan Mengambang -->
+  <div class="cloud" style="top: 50px; animation-delay: 0s;"></div>
+  <div class="cloud" style="top: 120px; animation-delay: 5s;"></div>
+  <div class="cloud" style="top: 180px; animation-delay: 10s;"></div>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <img src="https://cdn-icons-png.flaticon.com/512/742/742751.png" alt="Karakter Lucu" />
+    <h1>Haii.. Selamat Datang!</h1>
+    <p>Gimana kabarmu? semoga baiki-baik saja yaa.. </p>
+
+    <div class="question">
+      <h2>Aku mau tanya nih, apakah ini lucu?</h2>
+      <div class="cta">
+        <button onclick="alert('Yayy..! Benarr lucu kaya kamu 😊')">Iya</button>
+        <button id="noBtn">Tidak</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById('noBtn');
+
+    noBtn.addEventListener('mouseover', () => {
+      const x = Math.floor(Math.random() * (window.innerWidth - 100));
+      const y = Math.floor(Math.random() * (window.innerHeight - 50));
+      noBtn.style.position = 'absolute';
+      noBtn.style.left = `${x}px`;
+      noBtn.style.top = `${y}px`;
+    });
+  </script>
+
+</body>
+</html>
